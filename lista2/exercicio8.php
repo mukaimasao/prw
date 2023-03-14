@@ -11,15 +11,3 @@
     }
     
 ?>
-float a, b, c;
-	
-	cin>>a>>b>>c;
-	
-	cout<<fixed;
-	cout.precision(1);
-	
-	if(a<b+c && a>b-c){
-		cout<<"Perimetro = "<<a+b+c<<endl;
-	} else{
-		cout<<"Area = "<<((a + b)*c)/2<<endl;
-	}
