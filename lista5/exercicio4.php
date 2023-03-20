@@ -8,7 +8,7 @@
             $caracter = $line[$j];
             switch($caracter){
                 case 0:
-                    $nled+=7;
+                    $nled+=6;
                     break;
                 case 1:
                     $nled+=2;
@@ -39,7 +39,9 @@
                     break;
             }
         }
+        
         echo"$nled leds\n";
+        $n--;
     }
 
 ?>
