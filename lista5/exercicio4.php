@@ -1,47 +1,29 @@
 <?php
-    $n = readline();
-    while($n>0){
-        $line = readline();
-        $comprimento = strlen($line);
-        $nled=0;
-        for($j = 0; $j< $comprimento; $j++){
-            $caracter = $line[$j];
-            switch($caracter){
-                case 0:
-                    $nled+=6;
-                    break;
-                case 1:
-                    $nled+=2;
-                    break;
-                case 2:
-                    $nled +=5;
-                    break;
-                case 3:
-                    $nled +=5;
-                    break;
-                case 4:
-                    $nled +=4;
-                    break;
-                case 5:
-                    $nled += 5;
-                    break;
-                case 6:
-                    $nled +=6;
-                    break;
-                case 7:
-                    $nled += 3;
-                    break;
-                case 8:
-                    $nled += 7;
-                    break;
-                case 9:
-                    $nled +=6;
-                    break;
-            }
+while (fscanf(STDIN, "%d%d%d", $N, $L, $C) !== false) {
+    $story = fgets(STDIN);
+    $len = strlen($story) - 1;
+
+    $chars = $checkpoint = 0;
+    $lines = $pages = 1;
+
+    for ($i = 0; $i < $len; ++$i) {
+        if ($i && $story[$i-1] == ' ') {
+            $checkpoint = $i;
         }
-        
-        echo"$nled leds\n";
-        $n--;
+
+        if ($chars == $C) {
+            ++$lines;
+            if ($story[$i] == ' ') {
+                $chars = 0;
+            } else {
+                $chars = $i - $checkpoint + 1;
+            }
+        } else {
+            ++$chars;
+        }
     }
 
+    $pages = ceil($lines / $L);
+    printf("%d\n", $pages);
+}
 ?>

@@ -1,29 +1,20 @@
 <?php
-while (fscanf(STDIN, "%d%d%d", $N, $L, $C) !== false) {
-    $story = fgets(STDIN);
-    $len = strlen($story) - 1;
 
-    $chars = $checkpoint = 0;
-    $lines = $pages = 1;
-
-    for ($i = 0; $i < $len; ++$i) {
-        if ($i && $story[$i-1] == ' ') {
-            $checkpoint = $i;
-        }
-
-        if ($chars == $C) {
-            ++$lines;
-            if ($story[$i] == ' ') {
-                $chars = 0;
-            } else {
-                $chars = $i - $checkpoint + 1;
-            }
+while ($sentenca = fgets(STDIN)) { 
+    $nova_sentenca = '';
+    $maiuscula = true;
+    for ($i = 0; $i < strlen($sentenca); $i++) {
+        $letra = $sentenca[$i];
+        if ($letra == ' ') {
+            $nova_sentenca .= ' '; 
         } else {
-            ++$chars;
+            if ($maiuscula) {
+                $nova_sentenca .= strtoupper($letra);
+            } else {
+                $nova_sentenca .= strtolower($letra);
+            }
+            $maiuscula = !$maiuscula; 
         }
     }
-
-    $pages = ceil($lines / $L);
-    printf("%d\n", $pages);
+    echo $nova_sentenca;
 }
-?>

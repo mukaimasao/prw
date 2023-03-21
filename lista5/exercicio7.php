@@ -1,20 +1,31 @@
 <?php
+while (true) {
+  $n = intval(fgets(STDIN));
+  if ($n == 0) {
+    break;
+  }
 
-$n = intval(readline());
+  $text = array();
+  $max_length = 0;
 
-while ($n--) {
-    $f = readline();
-    $hl = intval(strlen($f) / 2);
-
-    for ($i = $hl - 1; $i >= 0; $i--) {
-        echo $f[$i];
+  for ($i = 0; $i < $n; $i++) {
+    $line = trim(fgets(STDIN));
+    $line = preg_replace('/\s+/', ' ', $line);
+    $text[] = $line;
+    $length = strlen($line);
+    if ($length > $max_length) {
+      $max_length = $length;
     }
+  }
 
-    for ($i = strlen($f) - 1; $i >= $hl; $i--) {
-        echo $f[$i];
-    }
-
+  foreach ($text as $line) {
+    $spaces = $max_length - strlen($line);
+    echo str_repeat(" ", $spaces) . $line . "\n";
+  }
+  $last_case = trim(fgets(STDIN));
+  if ($last_case !== '0') {
     echo "\n";
+    fseek(STDIN, -strlen($last_case)-1, SEEK_CUR);
+  }
 }
-
 ?>
