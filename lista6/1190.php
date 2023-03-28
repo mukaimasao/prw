@@ -11,15 +11,20 @@ for ($i = 0; $i < 12; $i++) {
 }
 
 $soma = 0;
-$contagem = 0;
-for ($i = 0; $i < 12; $i++) {
-    for ($j = $i + 1; $j < 12; $j++) {
-        $soma += $M[$i][$j];
-        $contagem++;
+for ($i = 1; $i <= 10; $i++) {
+    if($i<=5) {
+        for($j = 11; $j>11-$i; $j--){
+            $soma += $M[$i][$j];
+        }
+        
+    }else{
+        for($j =11; $j > $i; $j--){
+            $soma += $M[$i][$j];
+        }
     }
 }
 if ($operacao == "M") {
-    $resultado = $soma / $contagem;
+    $resultado = $soma / ((144-12-12)/4);
     echo number_format($resultado, 1, ".", "") . "\n";
 } else {
     echo number_format($soma, 1, ".", "") . "\n";
