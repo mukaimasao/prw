@@ -1,31 +1,34 @@
 <?php
     
     while(true){
-        $n = trim(intval(fgets(STDIN)));
+        $n = readline();
         if($n ==0){
             break;
         }
-        $pd= explode(' ', trim(intval(fgets(STDIN))));
-        $x= $pd[0];
-        $y = $pd[1];
+        
+        $entrada1 = explode(' ', readline());
+        $N = $entrada1[0];
+        $m = $entrada1[1];
         for($i=0; $i<$n; $i++){
-            $matriz = explode(' ', trim(intval(fgets(STDIN))));
-            $xx = $matriz[$i];
-            $yy = $matriz[$i+1];
-            if($xx == $x){
-                echo 'divisa' . PHP_EOL;
-            }else if($yy = $y){
-                echo 'divisa' . PHP_EOL;
-            }else if($xx > $x && $yy >$y){
-                echo 'NE' . PHP_EOL;
-            }else if($xx > $x && $yy <$y){
-                echo 'SE' . PHP_EOL;
-            }else if($xx < $x && $yy >$y){
-                echo 'NO' . PHP_EOL;
-            }else if($xx < $x && $yy <$y){
-                echo 'SO' . PHP_EOL;
+
+            $entrada2 = explode(' ', readline());
+            $x = $entrada2[0];
+            $y = $entrada2[1];
+            $localizacao='';
+            if($y > $m) {
+                $localizacao = trim("N");
+            }if($y < $m) {
+                $localizacao = trim("S");
             }
+            if($x > $N) {
+                $localizacao .= trim("E");
+            }if($x < $N) {
+                $localizacao .= trim("O");
+            }
+            if(($x == $N) || ($y == $m)) {
+                $localizacao = trim("divisa");
+            }
+            echo $localizacao . PHP_EOL;
         }
-        $n--;
     }
 ?>
