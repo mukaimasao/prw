@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .radios{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Escolha a opção desejada</h1>
+        <form action="exercicio2.php" method="POST" class="box"> <!--get pesquisar dados no servidor e o post inserir os dados, action qual arquivo que sera chamado pelo form-->
+            <div class="hehe radios">
+                <label for="texto">Texto</label>
+                <input type="text" name="texto" placeholder="Digite o texto">
+            </div>
+            <div class="hehe">
+                <label for="textArea">Text Area</label>
+                <textarea name="textArea" id="ta" cols="30" rows="10"></textarea>
+            </div>
+            <div class="hehe">
+                <label for="check">Checkbox</label>
+                <input type="checkbox" name="check" value="Checkbox OK">
+            </div>
+            <div>
+                <label for="radio">Radio</label>
+                <input type="radio" name="radio" value="Radio OK">
+            </div>
+            <div>
+                <label for="select">Select</label>
+                <select name="select" id="st" size="2" value="default">
+                    <option value="OK">OK</option>
+                    <option value="KO">KO</option>
+                </select>
+            </div>
+            <div class="hehe">
+                <button type="submit" class="hehe bt">Enviar</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

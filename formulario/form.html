@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hehe{
+            margin: 5px;
+            padding: 5px;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #b0f1fa;
+        }
+        .box {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        body {
+            margin: 0px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro</h1>
+        <form action="form.php" method="POST" class="box"> <!--get pesquisar dados no servidor e o post inserir os dados, action qual arquivo que sera chamado pelo form-->
+            <div class="hehe">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" placeholder="Digite seu nome">
+            </div>
+            <div class="hehe">
+                <label for="idade">Idade</label>
+                <input type="text" name="idade" placeholder="Digite sua idade">
+            </div>
+            <div class="hehe">
+                <button type="submit" class="hehe bt">Enviar</button>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
